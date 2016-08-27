@@ -3,6 +3,7 @@ name := "kontextfrei-example"
 val common = Seq(
   organization := "com.danielwestheide",
   version := "0.0.1-SNAPSHOT",
+  resolvers += "dwestheide" at "https://dl.bintray.com/dwestheide/maven",
   scalacOptions ++= Seq("-feature", "-language:higherKinds", "-language:implicitConversions")
 )
 
@@ -11,7 +12,7 @@ val scalatest = "org.scalatest" %% "scalatest" % "2.2.6" % "test,it"
 val scalacheck = "org.scalacheck" %% "scalacheck" % "1.12.5" % "test,it"
 val jodaTime = "joda-time" % "joda-time" % "2.9.3"
 val jodaConvert = "org.joda" % "joda-convert" % "1.8.1"
-val kontextfreiCore = "com.danielwestheide" %% "kontextfrei-core" % "0.0.1-SNAPSHOT"
+val kontextfreiCore = "com.danielwestheide" %% "kontextfrei-core" % "0.1.0"
 
 scalaVersion := "2.10.6"
 
