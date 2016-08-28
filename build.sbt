@@ -12,7 +12,7 @@ val scalatest = "org.scalatest" %% "scalatest" % "2.2.6" % "test,it"
 val scalacheck = "org.scalacheck" %% "scalacheck" % "1.12.5" % "test,it"
 val jodaTime = "joda-time" % "joda-time" % "2.9.3"
 val jodaConvert = "org.joda" % "joda-convert" % "1.8.1"
-val kontextfreiCore = "com.danielwestheide" %% "kontextfrei-core" % "0.1.0"
+val kontextfreiCore = "com.danielwestheide" %% "kontextfrei-core" % "0.1.1"
 
 scalaVersion := "2.10.6"
 
