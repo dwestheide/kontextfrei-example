@@ -1,7 +1,5 @@
 package com.danielwestheide.kontextfrei.example
 
-import com.danielwestheide.kontextfrei.{DCollectionOps, StreamCollectionOps}
+import com.danielwestheide.kontextfrei.scalatest.StreamSpec
 
-abstract class UnitSpec extends BaseSpec[Stream] {
-  override implicit val ops: DCollectionOps[Stream] = StreamCollectionOps.streamCollectionOps
-}
+abstract class UnitSpec extends BaseSpec[Stream] with StreamSpec
