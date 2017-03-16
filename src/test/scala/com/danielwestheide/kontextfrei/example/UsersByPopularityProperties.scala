@@ -1,29 +1,31 @@
 package com.danielwestheide.kontextfrei.example
 
-import com.danielwestheide.kontextfrei.DCollectionOps
+import com.danielwestheide.kontextfrei.syntax.Imports._
 
 trait UsersByPopularityProperties[DColl[_]] extends BaseSpec[DColl] {
 
-  import DCollectionOps.Imports._
   def logic: JobLogic[DColl]
 
   property("Each user appears only once") {
-    forAll { starredEvents: List[RepoStarred] =>
-      val result = logic.usersByPopularity(unit(starredEvents)).collect().toList
+    forAll { starredEvents: DColl[RepoStarred] =>
+      val result =
+        logic.usersByPopularity(starredEvents).collect().toList
       result.distinct mustEqual result
     }
   }
 
   property("Total counts correspond to number of events") {
-    forAll { starredEvents: List[RepoStarred] =>
-      val result = logic.usersByPopularity(unit(starredEvents)).collect().toList
-      result.map(_._2).sum mustEqual starredEvents.size
+    forAll { starredEvents: DColl[RepoStarred] =>
+      val result =
+        logic.usersByPopularity(starredEvents).collect().toList
+      result.map(_._2).sum mustEqual starredEvents.count()
     }
   }
 
   property("User with maximum stars is the first element in result") {
-    forAll { starredEvents: List[RepoStarred] =>
-      val result = logic.usersByPopularity(unit(starredEvents)).collect().toList
+    forAll { starredEvents: DColl[RepoStarred] =>
+      val result =
+        logic.usersByPopularity(starredEvents).collect().toList
       result.head mustEqual result.maxBy(_._2)
     }
   }
