@@ -1,4 +1,4 @@
-package com.danielwestheide.kontextfrei.example
+package com.danielwestheide.ktxfr.example
 
 import org.apache.spark.rdd.RDD
 
